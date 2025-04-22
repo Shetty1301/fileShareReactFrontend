@@ -55,7 +55,7 @@ const Upload = () => {
   };
 
   return (
-    <div className='upload-container'>
+    <div className="upload-container">
       {/* <video 
         className="background-video" 
         autoPlay 
@@ -68,24 +68,28 @@ const Upload = () => {
         Your browser does not support the video tag.
       </video> */}
 
-      <div className='content-box'>
-        <h1 className='upload-heading'>Upload Your File</h1>
-        
+      <div className="content-box">
+        <h1 className="upload-heading">Upload Your File</h1>
+
         {error && <div className="error-message">{error}</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="file-input-container">
-            <button type="button" className='upload-button' onClick={onUploadClick}>
-              <span>{file ? file.name : 'Select File to Upload'}</span>
+            <button
+              type="button"
+              className="upload-button"
+              onClick={onUploadClick}
+            >
+              <span>{file ? file.name : "Select File to Upload"}</span>
             </button>
             <input
-              type='file'
+              type="file"
               ref={fileInputRef}
-              style={{ display: 'none' }}
+              style={{ display: "none" }}
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="alias">Custom Alias (Optional)</label>
             <input
@@ -96,7 +100,7 @@ const Upload = () => {
               placeholder="Leave blank for random alias"
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password Protection (Optional)</label>
             <input
@@ -107,7 +111,7 @@ const Upload = () => {
               placeholder="Leave blank for no password"
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="downloadLimit">Download Limit</label>
             <input
@@ -119,15 +123,39 @@ const Upload = () => {
               max="100"
             />
           </div>
-          
-          <button type="submit" className='upload-button' disabled={loading}>
-            <span>{loading ? 'Uploading...' : 'Upload File'}</span>
+
+          <button type="submit" className="upload-button" disabled={loading}>
+            <span>{loading ? "Uploading..." : "Upload File"}</span>
           </button>
         </form>
-        
+
         {/* Replace your result div with the LinkDisplay component */}
         {result && (
-          <LinkDisplay link={result.download_link} password={password} />
+          <>
+            <LinkDisplay link={result.download_link} password={password} />
+            <div className="instructions">
+              <h2>How to Retrieve Your File</h2>
+              <p>To access your uploaded file, use one of the following links:</p>
+              <p>
+                <strong>With Password:</strong>
+              </p>
+              <code>
+                https://fileshareflaskapp.onrender.com/ds?password={password || "example"}
+              </code>
+              <p>
+                Replace <strong>"example"</strong> with the password you set during the upload process.
+              </p>
+              <p>
+                <strong>Without Password:</strong>
+              </p>
+              <code>
+                https://fileshareflaskapp.onrender.com/ds
+              </code>
+              <p>
+                Use this link if no password was set during the upload process.
+              </p>
+            </div>
+          </>
         )}
       </div>
       {/* <a className='credits' href="https://www.vecteezy.com/free-videos/rectangle">Rectangle Stock Videos by Vecteezy</a> */}
