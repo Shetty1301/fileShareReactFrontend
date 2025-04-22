@@ -51,3 +51,37 @@ button {
   font-size: 20px;
   margin: 30px 0;
 } */
+ /* Add this to your index.css or App.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: aquamarine rgba(0, 0, 0, 0.5); /* For Firefox */
+}
+
+/* Custom scrollbar styling for Chrome/Safari/Edge */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: aquamarine;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #00ffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffdd;
+}
+
+/* Ensure the root div takes full height */
+#root {
+  height: 100%;
+}

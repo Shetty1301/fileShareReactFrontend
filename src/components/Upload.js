@@ -3,6 +3,8 @@ import React, { useState, useRef, useContext } from 'react';
 import { uploadFile } from '../service/api';
 import { AuthContext } from '../contexts/AuthContext';
 import './Upload.css';
+// Add this import
+import LinkDisplay from './LinkDisplay';
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -123,19 +125,9 @@ const Upload = () => {
           </button>
         </form>
         
+        {/* Replace your result div with the LinkDisplay component */}
         {result && (
-          <div className='result-div'>
-            <h3>File Uploaded Successfully!</h3>
-            <p><strong>Download Link:</strong></p>
-            <a href={result.download_link} target='_blank' rel='noopener noreferrer'>
-              {result.download_link}
-            </a>
-            {result.password && (
-              <p><strong>Password:</strong> {password}</p>
-            )}
-            {/* <p><strong>Downloads Remaining:</strong> {result.download_limit}</p>
-            <p><strong>Expires:</strong> {new Date(result.expires_at).toLocaleString()}</p> */}
-          </div>
+          <LinkDisplay link={result.download_link} password={password} />
         )}
       </div>
       {/* <a className='credits' href="https://www.vecteezy.com/free-videos/rectangle">Rectangle Stock Videos by Vecteezy</a> */}
