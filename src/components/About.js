@@ -15,7 +15,7 @@ const About = (props) => {
         </p>
         <br />
         <p>
-          The app is built using React and NodeJs, Express server and MongoDB database, basically MERN stack. It implements react props, states, router, hooks, api, etc.
+          The app is built using React and NodeJs, Express server and MongoDB database, basically MERN stack. It implements react props, states, router, api, etc.
         </p>
       </div>
     </div>
