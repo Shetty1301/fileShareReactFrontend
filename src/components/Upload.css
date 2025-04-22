@@ -174,19 +174,45 @@
 
 .instructions {
   margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white */
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
   padding: 15px;
   border-radius: 8px;
   color: #fff;
+  text-align: left; /* Align text to the left */
+  word-wrap: break-word; /* Ensure long links wrap within the container */
+  overflow-wrap: break-word; /* For better compatibility */
+}
+
+.instructions h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: aquamarine;
+}
+
+.instructions p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ddd;
 }
 
 .instructions code {
+  display: block; /* Make the code block take full width */
   background-color: #333; /* Darker background for code block */
-  color: #0f0; /* Green text for code */
-  padding: 5px;
+  color: aquamarine; /* Green text for code */
+  padding: 10px;
   border-radius: 5px;
-  display: block;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  word-break: break-all; /* Break long links */
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); /* Subtle glow effect */
+}
+
+.instructions code:hover {
+  background-color: #444; /* Slightly lighter on hover */
+}
+
+.instructions strong {
+  color: aquamarine; /* Highlight important text */
 }
 
 .error-message {
