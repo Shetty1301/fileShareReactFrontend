@@ -1,0 +1,89 @@
+nav {
+    background-color: rgba(128, 128, 128, 0.15); /* glassy effect */
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    width: 1470px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    z-index: 1000;
+    padding: 0 40px;
+    border-bottom: 1px solid aquamarine;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.nav-items {
+    all: unset;
+}
+
+.nav-items a,
+.nav-items span {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: aquamarine;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-items a:hover,
+.nav-items span:hover {
+    color: #000021;
+    text-shadow:
+        1px 1px 0 aquamarine,
+        -1px -1px 0 aquamarine,
+        0px 0px 5px aquamarine;
+}
+
+/* Logout button styling */
+.logout-btn {
+    background-color: transparent;
+    color: aquamarine;
+    border: 2px solid aquamarine;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset 0 0 5px #00ffff, 0 0 10px #00ffff;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: aquamarine;
+    color: black;
+    box-shadow: 0 0 15px aquamarine;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

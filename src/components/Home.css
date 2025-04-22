@@ -1,0 +1,87 @@
+.home-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(7, 0, 31);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    
+}
+
+.home-heading{
+    height: 40vh;
+    width: 40vw;
+    padding-top: 10vh;
+    text-align: center;
+    font-size: 60px;
+    background: linear-gradient(to right, purple, indigo, blue);
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-clip: text;
+    color: transparent;
+}
+
+.home-para{
+    color: aquamarine;
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
+    font-weight: 600;
+    text-shadow:
+        0 0 20px #00ffff; 
+}
+
+.go-to-uploads {
+    height: 4rem;
+    width: 13rem;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: large;
+    color: aquamarine;
+    background-color: transparent; /* Keep the initial background transparent */
+    border-radius: 5px;
+    border: 2px solid aquamarine;
+    box-shadow:
+        inset 0 0 5px #00ffff,  
+        0 0 10px #00ffff,
+        0 0 250px #00ffff;
+    overflow: hidden; /* Hide overflow to contain the sliding effect */
+    cursor: pointer; /* Change cursor to pointer */
+    position: relative; /* Allow absolute positioning for the pseudo-element */
+}
+
+.go-to-uploads::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Absolute position */
+    top: 0; /* Align to the top */
+    left: -100%; /* Start off to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: aquamarine; /* Background color on hover */
+    transition: left 0.3s ease; /* Transition for sliding effect */
+    z-index: 0; /* Position behind the text */
+}
+
+.go-to-uploads:hover::before {
+    left: 0; /* Slide in from the left on hover */
+}
+
+.go-to-uploads:hover {
+    color: rgb(7, 0, 31); /* Change text color on hover */
+    transition: color 0.3s ease; /* Transition for text color */
+}
+
+.go-to-uploads span {
+    position: relative; /* Ensure text is above the background */
+    z-index: 1; /* Position text above the pseudo-element */
+}
+
