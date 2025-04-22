@@ -53,7 +53,13 @@ export const uploadFile = async (data) => {
 // Get user's uploaded files
 export const getUserFiles = async () => {
   try {
-    const response = await api.get('/files-by-email');
+    // Get the user's email from localStorage
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (!userData || !userData.email) {
+      throw new Error('User email not found');
+    }
+    
+    const response = await api.get(`/files-by-email?email=${userData.email}`);
     return response.data;
   } catch (error) {
     throw error.response ? error.response.data : error.message;
@@ -63,7 +69,12 @@ export const getUserFiles = async () => {
 // Delete user's file
 export const deleteFile = async (fileId) => {
   try {
-    const response = await api.delete(`/my-uploads/${fileId}`);
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (!userData || !userData.email) {
+      throw new Error('User email not found');
+    }
+    
+    const response = await api.delete(`/delete-by-email/${fileId}?email=${userData.email}`);
     return response.data;
   } catch (error) {
     throw error.response ? error.response.data : error.message;
